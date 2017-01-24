@@ -273,7 +273,9 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 
 - (void)longPress:(UILongPressGestureRecognizer *)lp {
-    [self erase];
+    if([self.signatureDelegate shouldEraseOnLongPress]) {
+        [self erase];
+    }
 }
 
 - (void)pan:(UIPanGestureRecognizer *)p {
