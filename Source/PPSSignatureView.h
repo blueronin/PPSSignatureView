@@ -3,6 +3,7 @@
 
 @protocol PPSSignatureViewDelegate <NSObject>
 
+@optional
 - (BOOL)shouldEraseOnLongPress;
 
 @end

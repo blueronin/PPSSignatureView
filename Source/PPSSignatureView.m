@@ -273,7 +273,12 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 
 - (void)longPress:(UILongPressGestureRecognizer *)lp {
-    if([self.signatureDelegate shouldEraseOnLongPress]) {
+    if(self.signatureDelegate && [self.signatureDelegate respondsToSelector:@selector(shouldEraseOnLongPress)]) {
+        if([self.signatureDelegate shouldEraseOnLongPress]) {
+            [self erase];
+        }
+    }
+    else {
         [self erase];
     }
 }
