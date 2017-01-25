@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/jharwig/PPSSignatureView"
   s.license      = 'MIT'
   s.author       = { "jharwig" => "jason@pinepointsoftware.com" }
-  s.source       = { :git => "https://github.com/jharwig/PPSSignatureView.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/gemery1/PPSSignatureView.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '5.0'
   s.ios.deployment_target = '5.0'
