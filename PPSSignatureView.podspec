@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "PPSSignatureView"
+  s.name         = "PPSSignatureViewPlus"
   s.version      = "0.1.2"
   s.summary      = "Signature pad"
   s.description  = <<-DESC
@@ -21,3 +21,4 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Source/*.h'
   s.frameworks = 'OpenGLES', 'GLKit'
 end
+ 
