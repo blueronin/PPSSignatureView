@@ -14,7 +14,7 @@
 
 
 static GLKVector3 StrokeColor = { 0, 0, 0 };
-static float clearColor[4] = { 1, 1, 1, 0 };
+static float clearColor[4] = { 0, 0, 0, 0 };
 
 // Vertex structure containing 3D point and color
 struct PPSSignaturePoint
@@ -122,7 +122,7 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
     if (context) {
         time(NULL);
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
         
         self.context = context;
@@ -273,7 +273,14 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 
 - (void)longPress:(UILongPressGestureRecognizer *)lp {
-    [self erase];
+    if(self.signatureDelegate && [self.signatureDelegate respondsToSelector:@selector(shouldEraseOnLongPress)]) {
+        if([self.signatureDelegate shouldEraseOnLongPress]) {
+            [self erase];
+        }
+    }
+    else {
+        [self erase];
+    }
 }
 
 - (void)pan:(UIPanGestureRecognizer *)p {
